@@ -3,13 +3,13 @@ require_once('./config/db.php');
 // propriétés de Hero
 class Hero 
 {
-    private string $name;
-    private int $health_point = 10;
+    private $name;
+    private $health_point = 100;
+    private $id; 
 
 // constructeur de Hero
     public function __construct(array $data) {
         $this->name = $data['name'];
-        $this->health_point = $data['health_point'];
     }
 
 // méthode Hit vide pour le moment
@@ -28,6 +28,11 @@ class Hero
     {
         return $this->health_point;
     }
+
+    public function setId($id) {
+        $this->id = $id;
+    }
+
 }
 
 ?>

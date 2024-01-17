@@ -6,22 +6,22 @@ require_once('./classes/HeroesManager.php');
 require_once('./classes/Monster.php');
 require_once('./config/db.php');
 
-session_start();
+// session_start();
 
 // Dans une condition, si des données POST['name'] existent, 
 // créer une instance de HeroesManager($db) en lui fournissant la connexion à la base de données.
 if(
     isset($_POST["name"]) && !empty($_POST["name"])) {
-          // Créez une nouvelle instance de la classe HeroesManager en lui fournissant la connexion à la base de données
-    $HeroesManager = new HeroesManager($db);
-     // Créez une nouvelle instance de la classe Hero avec le nom récupéré du formulaire
-    $newHero = new Hero($_POST["name"]);
-        // Appelez la méthode add() du manager en lui donnant comme argument 
+        // je crée une nouvelle instance de la classe HeroesManager en lui fournissant la connexion à la base de données
+    $heroesManager = new HeroesManager($db);
+        // je crée une nouvelle instance de la classe Hero avec le nom récupéré du formulaire
+    $hero = new Hero([
+        'name' => $_POST["name"]]);
+        // j'appelle la méthode add() du manager en lui donnant comme argument 
         // une nouvelle instance de la classe Hero
-    $HeroesManager->add($newHero);
+    $heroesManager->add($hero);
+
 }
-// Redirigez l'utilisateur vers index.php après le traitement
-header('Location: index.php');
 
 ?>
 
@@ -36,8 +36,9 @@ header('Location: index.php');
 
 <main>
     <div class="d-flex justify-content-center">
-    <form>
+    <form method="POST">
         <input name="name">
+        <button type="submit">Envoyer</button>
     </form>
     </div>
 
