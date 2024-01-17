@@ -1,5 +1,5 @@
 <?php
-require_once('./utils/db.php');
+require_once('./config/db.php');
 
 class FightsManager {
 

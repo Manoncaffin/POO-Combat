@@ -1,20 +1,32 @@
 <?php
-require_once('../config/db.php');
-
-class Hero {
+require_once('./config/db.php');
+// propriétés de Hero
+class Hero 
+{
     private string $name;
-    private int $points;
+    private int $health_point = 10;
 
-
-    public function __construct() {
-        $this->name = $name;
-        $this->points = $points;
+// constructeur de Hero
+    public function __construct(array $data) {
+        $this->name = $data['name'];
+        $this->health_point = $data['health_point'];
     }
 
-    public function hitTheMonster();
+// méthode Hit vide pour le moment
+    // public function hit($action);
+    // {
+    //     $this->name = $action;
+    //     $this->health_point = $health_point;
+    // }
+
+    public function getName() : string
     {
-        $this->name = ;
-        $this->points = ;
+        return $this->name;
+    }
+
+    public function getPoint() : int
+    {
+        return $this->health_point;
     }
 }
 
