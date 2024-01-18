@@ -1,0 +1,48 @@
+.titre {
+    font-family: "TINY5x3-160";
+    font-size: 120px;
+}
+
+.choix {
+    font-family: "TINY5x3-140";
+    font-size: 80px;
+}
+
+.fond {
+    height: 100vh;
+    width: 99.1vw;
+}
+
+#connect {
+    font-family: "TINY5x3-160";
+    font-size: 70px;
+}
+
+body {
+    background-size: cover;
+    background: linear-gradient(rgb(255, 244, 92), white)
+}
+
+.formulaire-one {
+    padding-top: 300px;
+    padding-bottom: 400px;
+    border: 1px, solid;
+    border-radius: 10px;
+}
+
+#heroes {
+    font-family: "TINY5x3-140";
+    font-size: 60px;
+    background-color: linear-gradient(white, blue);
+}
+
+#choose {
+
+}
+
+/* .button-with-shadow {
+    border: 1px, solid;
+    border: none; 
+    border-radius: 5px; 
+    box-shadow: 0 4px 8px rgba(237, 241, 0, 0.88); 
+} */
