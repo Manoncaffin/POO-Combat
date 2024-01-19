@@ -46,7 +46,7 @@ class HeroesManager {
 
     public function find(int $id) 
     {
-        $request = $this->db->query("SELECT * FROM heroes WHERE id");
+        $request = $this->db->query("SELECT * FROM heroes WHERE id = $id");
         $fightHero=$request->fetch();
 
         $hero = new Hero($fightHero);

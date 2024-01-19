@@ -3,8 +3,10 @@ require_once('./config/db.php');
 require_once('./config/autoload.php');
 
 $heroesManager = new HeroesManager($db);
-
-$allId = $heroesManager->find($_POST['hero_id']);
+if(isset($_POST['hero_id'])){
+    // $hero=$fight->find($_POST['hero_id']);
+$hero = $heroesManager->find($_POST['hero_id']);
+}
 
 // démarrage du fight
 // nouvelle instance de la classe FightsManager est créée
@@ -24,10 +26,7 @@ $fightResults = $fightsManager->fight($hero, $monster);
 // les modifications dans la base de données, mettant à jour les points de vie du héros, par exemple.
 $heroesManager->update($hero);
 
-if(isset($_POST['hero_id'])){
-    $hero=$fight->find($_POST['hero_id']);
-    
-}
+
 // boucle foreach pour affichage combat 
 // foreach ($arrayCombats as $arrayCombat)
 ?>

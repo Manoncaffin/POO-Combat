@@ -20,6 +20,7 @@ class Hero
         $monsterHealthPoint = $monster->getPointMonster();
         $monster->setPointMonster($monsterHealthPoint - $damage);
 
+        echo "<p>"  . $this->name . " riposte "  . $monster->getNameMonster() . " et lui envoie " . $damage ." punchlines !</p>";
         return $damage;
     }
 
