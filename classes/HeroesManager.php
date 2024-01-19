@@ -2,6 +2,7 @@
 require_once('./config/db.php');
 require_once('./config/autoload.php');
 
+// Heroes Manager gère les requêtes SQL
 class HeroesManager {
 
     private $db;
@@ -15,10 +16,11 @@ class HeroesManager {
     }
 
     public function add($hero) {
+        // $this->$db car c'est une propriété qui appartient à la class
         $request = $this->db->prepare("INSERT INTO heroes (name)
         VALUES (:name)");
         $request->execute([
-            // j'utilise la méthode getName() de l'objet Hero passé en argument
+        // j'utilise la méthode getName() de l'objet Hero passé en argument
             'name' => $hero->getName(),
         ]);
         $id = $this->db->lastInsertId();
@@ -31,23 +33,30 @@ class HeroesManager {
         $allHeroes = $request->fetchAll();
         // Pour chaque élément dans $allHeroes, où $hero prend la valeur de chaque élément successivement
         foreach ($allHeroes as $hero) { 
-        // On crée un nouvel objet de la classe Hero en utilisant la valeur actuelle de $hero comme argument du constructeur
+        // Je crée un nouvel objet de la classe Hero en utilisant la valeur actuelle de $hero comme argument du constructeur
         $newHero = new Hero ($hero);
-        // On appelle la méthode setId de l'objet $newHero en lui passant la valeur de 'id' de l'élément actuel dans $allHeroes
+        // J'aappelle la méthode setId de l'objet $newHero en lui passant la valeur de 'id' de l'élément actuel dans $allHeroes
         $newHero->setId($hero['id']);
-         // On ajoute l'objet $newHero à la propriété $heroesArray de l'objet actuel
+         // J'ajoute l'objet $newHero à la propriété $heroesArray de l'objet actuel
         $this->heroesArray[]=$newHero;
         }
-        // Une fois la boucle terminée, on retourne la propriété $heroesArray de l'objet actuel
+        // Une fois la boucle terminée, je retourne la propriété $heroesArray de l'objet actuel
         return $this->heroesArray;
     }
 
-    public function find(int $id) {
-        $request = $this->db->query("SELECT * FROM heroes WHERE id $id");
+    public function find(int $id) 
+    {
+        $request = $this->db->query("SELECT * FROM heroes WHERE id");
         $fightHero=$request->fetch();
 
         $hero = new Hero($fightHero);
         return $hero;
+    }
+
+    public function update(Hero $hero)
+    {
+        // $damage = [];
+        $request = $this->db->prepare("UPDATE heroes SET health_points = :health_points WHERE id = :id");
     }
 
 }

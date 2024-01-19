@@ -4,7 +4,6 @@ require_once('./config/autoload.php');
 require_once('./config/db.php');
 
 $heroesManager = new HeroesManager($db);
-$heroesManager->findAllAlive();
 $allHeroes = $heroesManager->findAllAlive();
 
 // var_dump($allHeroes);
@@ -61,7 +60,7 @@ if (
             <div class="formulaire-one d-flex justify-content-center text-black">
                 <form method="POST">
                     <label for="pseudo">Entrez votre pseudo</label>
-                    <input name="name" id="pseudo" placeholder="Pseudo">
+                    <input type="text" name="name" id="pseudo" placeholder="Pseudo">
                     <button type="submit" class="button-with-shadow">Valider</button>
                 </form>
             </div>
@@ -75,36 +74,15 @@ if (
                 <?php foreach ($allHeroes as $hero) { ?>
                 <h5 class="card-title"><?php echo $hero->getName() ?></h5>
                 <p class="card-text"><?php echo $hero->getPoint() ?></p>
-                <form method="POST" action="./classes/FightsManager.php"></form>
-                <input type="hidden" name="hero_id" value="<?php echo $hero->setId('id') ?>">
-                <button type="submit" class="button-with-shadow">Choisir</button>
+                <form method="POST" action="./fight.php">
+                    <input type="hidden" name="hero_id" value="<?php echo $hero->getId() ?>">
+                    <button type="submit" class="button-with-shadow">Choisir</button>
+                </form>
+                
                 <?php } ?>
             </div>
                 </session>
 
-
-
-
-        <session id="heroes" class="pt-5 pb-5 d-flex justify-content-center">
-            <div class="container-md">
-                <div class="heroes col-6">
-                    <!-- Crée une instance de la classe Hero pour chaque ligne de la base de données -->
-                    <?php foreach ($allHeroes as $hero) { ?>
-                        <h1><?php echo $hero->getName() ?></h1>
-                        <h2><?php echo $hero->getPoint() ?></h2>
-                    <?php } ?>
-                </div>
-
-                <div class="monster col-6">
-
-                </div>
-            </div>
-            <div class="">
-                <form method="POST" action="./classes/FightsManager.php"></form>
-                <input type="hidden" name="hero_id" value="<?php echo $hero->setId('id') ?>">
-                <button type="submit" class="button-with-shadow">Choisir</button>
-            </div>
-        </session>
 
         <session id="play" class="pt-5">
             <img src="./img/45950.jpg" class="fond d-flex justify-content-center" alt="Fond">
