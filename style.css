@@ -24,8 +24,8 @@ body {
 }
 
 .formulaire-one {
-    padding-top: 300px;
-    padding-bottom: 400px;
+    padding-top: 30px;
+    padding-bottom: 90px;
     border: 1px, solid;
     border-radius: 10px;
 }
@@ -34,15 +34,14 @@ body {
     font-family: "TINY5x3-140";
     font-size: 60px;
     background-color: linear-gradient(white, blue);
+    padding-bottom: 60px;
 }
 
-#choose {
-
+.carte {
+margin-bottom: 60px;
 }
 
-/* .button-with-shadow {
-    border: 1px, solid;
-    border: none; 
-    border-radius: 5px; 
-    box-shadow: 0 4px 8px rgba(237, 241, 0, 0.88); 
-} */
+.button {
+    border-radius: 10px;
+    height: 75px;
+}

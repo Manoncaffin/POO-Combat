@@ -15,20 +15,18 @@ public function createMonster()
 
 public function fight(Hero $hero, Monster $monster)
 {
-    var_dump($hero);
+    // var_dump($hero);
 
     $hero->hit($monster);
-    var_dump($monster);
+    // var_dump($monster);
     $monster->hit($hero);
-    var_dump($hero);
+    // var_dump($hero);
     // Tableau pour stocker le déroulé du combat
     $arrayCombat = []; 
 
     while($hero->getPoint() > 0 && $monster->getPointMonster() > 0) {
         $monster->hit($hero);
         $hero->hit($monster);
-
-
     }
     
     return $arrayCombat;

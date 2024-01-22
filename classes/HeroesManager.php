@@ -15,7 +15,8 @@ class HeroesManager {
         $this->db = $db;
     }
 
-    public function add($hero) {
+    public function add($hero) 
+    {
         // $this->$db car c'est une propriété qui appartient à la class
         $request = $this->db->prepare("INSERT INTO heroes (name)
         VALUES (:name)");
@@ -27,7 +28,8 @@ class HeroesManager {
         $hero->setId($id);
     }
 
-    public function findAllAlive() {
+    public function findAllAlive() 
+    {
         // clause WHERE health_point > 0 pour récupérer uniquement les héros en vie
         $request = $this->db->query("SELECT * FROM heroes WHERE health_point > 0");
         $allHeroes = $request->fetchAll();
@@ -50,15 +52,18 @@ class HeroesManager {
         $fightHero=$request->fetch();
 
         $hero = new Hero($fightHero);
+        $hero->setId($fightHero['id']);
         return $hero;
     }
 
     public function update(Hero $hero)
     {
-        // $damage = [];
-        $request = $this->db->prepare("UPDATE heroes SET health_points = :health_points WHERE id = :id");
+        $request = $this->db->prepare("UPDATE heroes SET health_point = :health_point WHERE id = :id");
+        $request->execute([
+            'health_point' => $hero->getPoint(),
+            'id' => $hero->getId(),
+        ]);
     }
-
 }
 
 

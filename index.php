@@ -50,11 +50,6 @@ if (
     </header>
 
     <main>
-        <!-- 
-    <div class="choix container-fluid d-flex justify-content-around">
-        <a class="text-decoration-none text-black" href="#">Jouer</a>
-        <a class="text-decoration-none text-black" href="#">Choisir</a>
-      </div> -->
 
         <session id="connect">
             <div class="formulaire-one d-flex justify-content-center text-black">
@@ -67,26 +62,27 @@ if (
         </session>
 
 
-        <session id="heroes" class="pt-5 pb-5 d-flex justify-content-center align-items-center" style="width: 18rem;">
-            <img src="..." class="card-img-top" alt="...">
-            <div class="heroes col-6 card-body">
-                <!-- Crée une instance de la classe Hero pour chaque ligne de la base de données -->
-                <?php foreach ($allHeroes as $hero) { ?>
-                <h5 class="card-title"><?php echo $hero->getName() ?></h5>
-                <p class="card-text"><?php echo $hero->getPoint() ?></p>
-                <form method="POST" action="./fight.php">
-                    <input type="hidden" name="hero_id" value="<?php echo $hero->getId() ?>">
-                    <button type="submit" class="button-with-shadow">Choisir</button>
-                </form>
-                
-                <?php } ?>
+        <session id="heroes">
+            <div class="container pb-5">
+                <div class="col-md-12 d-flex gap-4 flex-wrap justify-content-start">
+                    <!-- Crée une instance de la classe Hero pour chaque ligne de la base de données -->
+                    <?php foreach ($allHeroes as $hero) { ?>
+                        <div class="card text-center" style="max-width: 12rem;">
+                            <img src="./img/mario.gif" class="card-img-top" alt="Mario">
+                            <div class="card-body pt-3">
+                                <h1 class="card-title"><?php echo $hero->getName() ?></h1> <!-- affiche le nom de mon héro -->
+                                <h3 class="card-text">Point de vie : <?php echo $hero->getPoint() ?></h2> <!-- affiche la vie de mon héro -->
+                                <form method="POST" action="./fight.php">
+                                    <input type="hidden" name="hero_id" value="<?php echo $hero->getId() ?>">
+                                    <button type="submit" class="button">Choisir</button>
+                                </form>
+                            </div>
+                        </div>
+                    <?php } ?>
+                </div>
             </div>
-                </session>
-
-
-        <session id="play" class="pt-5">
-            <img src="./img/45950.jpg" class="fond d-flex justify-content-center" alt="Fond">
         </session>
+
 
     </main>
     <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/js/bootstrap.bundle.min.js" integrity="sha384-C6RzsynM9kWDrMNeT87bh95OGNyZPhcTNXj1NW7RuBCsyN/o0jlpcV8Qyq46cDfL" crossorigin="anonymous"></script>
