@@ -14,14 +14,15 @@ class Hero
     }
 
     // méthode Hit du combat entre le héro et le monstre
+
     public function hit(Monster $monster) : int
     {
         $damage = rand(0,50);
         $monsterHealthPoint = $monster->getPointMonster();
         $monster->setPointMonster($monsterHealthPoint - $damage);
-
-        echo "<p>"  . $this->name . " riposte "  . $monster->getNameMonster() . " et lui envoie " . $damage ." punchlines !</p>";
+        echo "<p class='typo-one text-center'>"  . $this->name . " lui rétorque " . $damage ." punchlines !</p>";
         return $damage;
+        
     }
 
     public function setName($name) : void

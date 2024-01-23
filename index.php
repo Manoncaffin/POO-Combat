@@ -39,7 +39,7 @@ if (
     <title>Punchline-combat</title>
 </head>
 
-<body>
+<body class="accueil">
 
     <header>
         <nav class="navbar navbar-expand-lg">
@@ -71,7 +71,7 @@ if (
                             <img src="./img/mario.gif" class="card-img-top" alt="Mario">
                             <div class="card-body pt-3">
                                 <h1 class="card-title"><?php echo $hero->getName() ?></h1> <!-- affiche le nom de mon héro -->
-                                <h3 class="card-text">Point de vie : <?php echo $hero->getPoint() ?></h2> <!-- affiche la vie de mon héro -->
+                                <h3 class="card-text">Points de vie : <?php echo $hero->getPoint() ?></h2> <!-- affiche la vie de mon héro -->
                                 <form method="POST" action="./fight.php">
                                     <input type="hidden" name="hero_id" value="<?php echo $hero->getId() ?>">
                                     <button type="submit" class="button">Choisir</button>

@@ -9,14 +9,13 @@ public function createMonster()
 {
     // Crée un nouvel objet Monster avec un nom de votre choix et une santé de 100
     $newMonster = new Monster();
-    $newMonster->setNameMonster("Monstre");
+    $newMonster->setNameMonster("Yoshi");
     return $newMonster;
 }
 
 public function fight(Hero $hero, Monster $monster)
 {
     // var_dump($hero);
-
     $hero->hit($monster);
     // var_dump($monster);
     $monster->hit($hero);
@@ -28,6 +27,8 @@ public function fight(Hero $hero, Monster $monster)
         $monster->hit($hero);
         $hero->hit($monster);
     }
+
+    
     
     return $arrayCombat;
 }

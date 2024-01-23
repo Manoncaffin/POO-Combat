@@ -33,7 +33,8 @@ class Monster
         $health_point = $hero->getPoint();
         $hero->setPoint($health_point - $damage);
 
-        echo "<p>"  . $this->monsterName . " riposte "  . $hero->getName() . " et lui envoie " . $damage . " punchlines !</p>";
+       
+        echo "<p class='typo-two text-center'>"  . $this->monsterName . " lui rétorque " . $damage . " punchlines !</p>";
 
         return $damage;
     }

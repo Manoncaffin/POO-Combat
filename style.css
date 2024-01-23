@@ -8,9 +8,11 @@
     font-size: 80px;
 }
 
-.fond {
-    height: 100vh;
-    width: 99.1vw;
+.fight {
+    display: flex;
+    background-image: url(./img/45950.jpg);
+    justify-content: center;
+    background-size: 100%;
 }
 
 #connect {
@@ -18,9 +20,9 @@
     font-size: 70px;
 }
 
-body {
-    background-size: cover;
-    background: linear-gradient(rgb(255, 244, 92), white)
+body.accueil {
+    background: linear-gradient(rgb(255, 244, 92), white);
+    min-height: 100vh;
 }
 
 .formulaire-one {
@@ -45,3 +47,51 @@ margin-bottom: 60px;
     border-radius: 10px;
     height: 75px;
 }
+
+.typo-one {
+    font-family: "TINY5x3-140";
+    font-size: 30px;
+    padding-top: 20px;
+    color: rgb(255, 0, 234);
+}
+
+.typo-two {
+    font-family: "TINY5x3-140";
+    font-size: 30px;
+    padding-top: 20px;
+    color: rgb(255, 0, 51);
+}
+
+.mario {
+    position: fixed;
+    top: 650px;
+    right: 540px;
+    transform: scale(1.3);
+}
+
+.yoshi {
+    position: fixed;
+    top: 660px;
+    left: 600px;
+    transform: scale(1.6);
+}
+
+.feu {
+    position: fixed;
+    top: 650px;
+    left: 700px;
+    transform: scale(1.3);
+}
+
+.punchlines {
+    max-height: 35vh;
+    /* white-space: nowrap; */
+    overflow: auto;
+    width: 30vw;
+}
+
+
+
+
+
+

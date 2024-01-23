@@ -15,16 +15,7 @@ $fightsManager = new FightsManager();
 // un nouveau monstre. Cette méthode est définie dans la classe FightsManager.
 // Elle est responsable de créer un objet Monster avec un nom spécifique et une santé initiale.
 $monster = $fightsManager->createMonster();
-// La méthode fight($hero, $monster) est appelée sur l'objet $fightManager. 
-// Cette méthode devrait contenir la logique du combat, où les points de vie du héros 
-// et du monstre sont ajustés en fonction de l'issue du combat. 
-// La variable $fightResults pourrait stocker des informations sur le combat, 
-// telles que le gagnant, le nombre de tours, etc.
-$fightResults = $fightsManager->fight($hero, $monster);
-// La méthode update($hero) de l'objet $heroesManager est appelée pour mettre à jour 
-// les informations du héros après le combat. Cette méthode devrait probablement enregistrer 
-// les modifications dans la base de données, mettant à jour les points de vie du héros, par exemple.
-$heroesManager->update($hero);
+
 
 
 // boucle foreach pour affichage combat 
@@ -42,14 +33,39 @@ $heroesManager->update($hero);
     <title>Punchline-combat</title>
 </head>
 
-<body>
-<main>
+<body class="fight">
+    <main>
+        <div class="punchlines">
+            <?php
 
-    <session id="play" class="pt-5 m-1">
-        <img src="./img/45950.jpg" class="fond d-flex justify-content-center" alt="Fond">
-    </session>
+            // La méthode fight($hero, $monster) est appelée sur l'objet $fightManager. 
+            // Cette méthode devrait contenir la logique du combat, où les points de vie du héros 
+            // et du monstre sont ajustés en fonction de l'issue du combat. 
+            // La variable $fightResults pourrait stocker des informations sur le combat, 
+            // telles que le gagnant, le nombre de tours, etc.
+            $fightResults = $fightsManager->fight($hero, $monster);
+            // La méthode update($hero) de l'objet $heroesManager est appelée pour mettre à jour 
+            // les informations du héros après le combat. Cette méthode devrait probablement enregistrer 
+            // les modifications dans la base de données, mettant à jour les points de vie du héros, par exemple.
+            $heroesManager->update($hero);
 
-</main>
-<script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/js/bootstrap.bundle.min.js" integrity="sha384-C6RzsynM9kWDrMNeT87bh95OGNyZPhcTNXj1NW7RuBCsyN/o0jlpcV8Qyq46cDfL" crossorigin="anonymous"></script>
+            ?>
+        </div>
+
+        <session id="play" class="pt-5 m-1">
+                <div class="mario">
+                    <img src="./img/mario-combat.gif" class="d-flex" alt="Mario">
+                </div>
+                <div class="yoshi">
+                    <img src="./img/yoshi.gif" class="d-flex" alt="Yoshi">
+                </div>
+                <div class="feu">
+                    <img src="./img/feu.gif" class="d-flex" alt="feu">
+                </div>
+        </session>
+
+    </main>
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/js/bootstrap.bundle.min.js" integrity="sha384-C6RzsynM9kWDrMNeT87bh95OGNyZPhcTNXj1NW7RuBCsyN/o0jlpcV8Qyq46cDfL" crossorigin="anonymous"></script>
 </body>
+
 </html>
